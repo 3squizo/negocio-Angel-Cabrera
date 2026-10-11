@@ -14,9 +14,25 @@ btnBuscar.addEventListener('click', async () => {
         }
 
         const datos = await respuesta.json();
-
+        mostrarPokemon(datos);
     } catch (error) {
         resultado.innerHTML = `<p> X ${error.message} </p>`;
     }
 
 })
+
+function mostrarPokemon(datos){
+    const tipos = datos.types.map(t => t.type.name).join(', ');
+    let peso = datos.weight*0.1;
+    let talla= datos.height*0.1;
+    resultado.innerHTML = `
+        <div class="tarjeta">
+            <h2>${datos.name}</h2>
+            <img src="${datos.sprites.front_default}">
+            <p>Tipo: ${tipos}</p>
+            <p>Peso: ${peso}kg</p>
+            <p>Altura: ${talla}m</p>
+            <p>Esperiencia: ${datos.base_experience}</p>
+        </div>
+    `
+}
