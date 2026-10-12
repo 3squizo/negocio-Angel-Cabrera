@@ -1,2 +1,2 @@
-# negocio-Angel-Cabrera
-Practica 1
+o CI:12957529 
+o Fecha: 11/10/2026
